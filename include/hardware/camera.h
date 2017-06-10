@@ -279,7 +279,8 @@ typedef struct camera_device_ops {
      * Dump state of the camera hardware
      */
     int (*dump)(struct camera_device *, int fd);
-        /**
+
+    /**
      * Set the file descriptor to HAL for writing file ih the HAL by fuqiang.
      * This is added for android 4.2.
      */
