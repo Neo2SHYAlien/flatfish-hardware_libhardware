@@ -242,17 +242,13 @@ typedef struct camera_device_ops {
      */
     int (*cancel_picture)(struct camera_device *);
 
+
     /**
      * Set the camera parameters. This returns BAD_VALUE if any parameter is
      * invalid or not supported.
      */
     int (*set_parameters)(struct camera_device *, const char *parms);
 
-	/**
-     * Set the file descriptor to HAL for writing file ih the HAL by fuqiang.
-     * This is added for android 4.2.
-     */
-	int (*set_fd)(struct camera_device *, int fd);
 
     /** Retrieve the camera parameters.  The buffer returned by the camera HAL
         must be returned back to it with put_parameters, if put_parameters
@@ -283,6 +279,13 @@ typedef struct camera_device_ops {
      * Dump state of the camera hardware
      */
     int (*dump)(struct camera_device *, int fd);
+
+    /**
+     * Set the file descriptor to HAL for writing file ih the HAL by fuqiang.
+     * This is added for android 4.2.
+     */
+        int (*set_fd)(struct camera_device *, int fd);
+
 } camera_device_ops_t;
 
 typedef struct camera_device {
